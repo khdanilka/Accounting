@@ -4,7 +4,7 @@ package stat.khdanapp.com.accounting;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class TransactionList {
+public final class TransactionList implements SumInterface {
 
     private static TransactionList instance;
     private TransactionList(){
@@ -33,5 +33,12 @@ public final class TransactionList {
     }
 
 
-
+    @Override
+    public double getSum() {
+        double m = 0;
+        for(Transaction t: listT){
+            m += t.getSum();
+        }
+        return m;
+    }
 }

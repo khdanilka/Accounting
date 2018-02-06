@@ -3,12 +3,13 @@ package stat.khdanapp.com.accounting;
 
 import java.text.SimpleDateFormat;
 
-public class Transaction {
+public class Transaction implements SumInterface {
 
     private Double sum;
     private SimpleDateFormat dateTime;
 
-    public Double getSum() {
+    @Override
+    public double getSum() {
         return sum;
     }
 
