@@ -41,4 +41,9 @@ public final class TransactionList implements SumInterface {
         }
         return m;
     }
+
+    protected  void notifyChangeCurrency(String  arg){
+        for(Observer  observer  :  listT )  {
+            observer.updateCurrency(arg); }
+    }
 }

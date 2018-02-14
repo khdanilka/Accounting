@@ -3,10 +3,11 @@ package stat.khdanapp.com.accounting;
 
 import java.text.SimpleDateFormat;
 
-public class Transaction implements SumInterface {
+public class Transaction implements SumInterface, Observer {
 
     private Double sum;
     private SimpleDateFormat dateTime;
+    private String currency = "us";
 
     @Override
     public double getSum() {
@@ -23,5 +24,11 @@ public class Transaction implements SumInterface {
 
     public void setDateTime(SimpleDateFormat dateTime) {
         this.dateTime = dateTime;
+    }
+
+
+    @Override
+    public void updateCurrency(String currency) {
+        this.currency = currency;
     }
 }
