@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 
 public class Transaction implements SumInterface, Observer {
 
+    private int id;
     private Double sum;
     private SimpleDateFormat dateTime;
     private String currency = "us";
@@ -26,6 +27,13 @@ public class Transaction implements SumInterface, Observer {
         this.dateTime = dateTime;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     @Override
     public void updateCurrency(String currency) {

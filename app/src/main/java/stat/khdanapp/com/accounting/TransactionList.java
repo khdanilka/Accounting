@@ -7,6 +7,7 @@ import java.util.List;
 public final class TransactionList implements SumInterface {
 
     private static TransactionList instance;
+    private BDmapper bd;
     private TransactionList(){
     }
 
@@ -21,6 +22,9 @@ public final class TransactionList implements SumInterface {
         return instance;
     }
 
+    public void setBd(BDmapper bd) {
+        this.bd = bd;
+    }
 
     private List<Transaction> listT = new ArrayList<>();
 
@@ -30,6 +34,15 @@ public final class TransactionList implements SumInterface {
 
     public void delete(Transaction t){
         listT.remove(t);
+    }
+
+    public Transaction findTransaction(int id){
+        for(Transaction t: listT){
+            if (t.getId() == id) return t;
+        }
+        Transaction t1 = bd.findByTrId(id);
+        if (t1 != null) return t1;
+        return null;
     }
 
 
